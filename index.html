@@ -48,8 +48,8 @@
                 padding:5px;
             }
             button{
-                margin-bottom: 15px;
                 padding:5px;
+                margin-bottom: 3px;;
             }
         </style>
 
@@ -82,10 +82,10 @@
                 if (URL) {
                     img.style.backgroundImage = "url("+URL+")";
                 }
+                else{
+
+                }
           }
-          function isImage(url) {
-            return(url.match(/\.(jpeg|jpg|gif|png|tif)$/) != null);
-        }
         </script>
 
         </head>
@@ -96,13 +96,13 @@
                 <div class="inner">
                     <p style="text-align: center; padding-bottom: 13px;"><b>Texture Seam Checker</b></p>
                     <input class="chooseButton" type='file'/>
+                     <h5 style="padding: 5px 0px;">Online</h5>
+                    <input type="text" name="url" id="url" placeholder="Image URL">
+                    <button onclick="setURL()">Done</button>
                     <h3>Scale:</h3>
                     <input id="slide" type="range" min="1" max="70" step="1" value="35" oninput="updateSize(this.value)">
                     <h3>Rotate:</h3>
                     <input id="slide" type="range" min="0" max="360" step="10" value="90" oninput="updateRotation(this.value)">
-                    <h5 style="padding-bottom: 5px;">Online</h5>
-                    <input type="text" name="url" id="url" placeholder="Image URL">
-                    <button onclick="setURL()">Done</button>
                     <p style="text-align: center;">Developed by</p>
                     <p style="text-align: center;"><a href="http://github.com/omerbhatti" target="_blank">@Omer Bhatti</a></p>
                 </div>
