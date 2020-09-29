@@ -24,7 +24,6 @@
                 top:50%;
                 left:50%;
                 width:180px;
-                height:230px;
                 background-color: rgba(0, 0, 0, 0.801);
                 transform: translate(-50%,-50%);
                 padding: 30px;
@@ -41,7 +40,16 @@
                 color: rgb(0, 170, 248);
             }
             #slide{
-                width:170px;
+                width:100%
+            }
+            #url{
+                width:63%;
+                background-color: rgb(255, 255, 255);
+                padding:5px;
+            }
+            button{
+                margin-bottom: 15px;
+                padding:5px;
             }
         </style>
 
@@ -68,6 +76,16 @@
                 var img = document.querySelector('.img');
                 img.style.webkitTransform="rotate(" + slideAmount + "deg)";                
           }
+          function setURL() {
+                var img = document.querySelector('.img');
+                var URL=document.getElementById("url").value;
+                if (URL) {
+                    img.style.backgroundImage = "url("+URL+")";
+                }
+          }
+          function isImage(url) {
+            return(url.match(/\.(jpeg|jpg|gif|png|tif)$/) != null);
+        }
         </script>
 
         </head>
@@ -76,12 +94,15 @@
             </div>
             <div class="box">
                 <div class="inner">
-                    <p style="text-align: center; padding-bottom: 3px;"><b>Texture Seam Checker</b></p>
+                    <p style="text-align: center; padding-bottom: 13px;"><b>Texture Seam Checker</b></p>
                     <input class="chooseButton" type='file'/>
                     <h3>Scale:</h3>
                     <input id="slide" type="range" min="1" max="70" step="1" value="35" oninput="updateSize(this.value)">
                     <h3>Rotate:</h3>
                     <input id="slide" type="range" min="0" max="360" step="10" value="90" oninput="updateRotation(this.value)">
+                    <h5 style="padding-bottom: 5px;">Online</h5>
+                    <input type="text" name="url" id="url" placeholder="Image URL">
+                    <button onclick="setURL()">Done</button>
                     <p style="text-align: center;">Developed by</p>
                     <p style="text-align: center;"><a href="http://github.com/omerbhatti" target="_blank">@Omer Bhatti</a></p>
                 </div>
