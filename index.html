@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+        <meta charset="utf-8">
+        <title>Texture Checking</title>
+        <style>
+            body{
+                margin:0;
+                font-family: 'Montserrat', sans-serif;
+            }
+            .img{
+                background-image: url("https://images.freecreatives.com/wp-content/uploads/2015/10/fabric-texture.jpg");
+                background-repeat: repeat;
+            }
+            .box{
+                width:180px;
+                height:230px;
+                background-color: rgba(0, 0, 0, 0.801);
+                position: absolute;
+                top:50%;
+                left:50%;
+                transform: translate(-50%,-50%);
+                padding: 30px;
+                border-radius: 15px;
+                border:1px white solid;
+            }
+            .inner{
+                color: white;
+                overflow: hidden;
+            }
+            a{
+                text-decoration: none;
+                color: rgb(0, 170, 248);
+            }
+            #slide{
+                width:170px;
+            }
+        </style>
+
+        <script>
+        window.addEventListener('load', function() {
+            document.querySelector('input[type="file"]').addEventListener('change', function() {
+                if (this.files && this.files[0]) 
+                {
+                    var img = document.querySelector('.img');
+                    img.src = URL.createObjectURL(this.files[0]);
+                    img.style.backgroundImage = "url("+img.src+")";
+                    img.onload = imageIsLoaded;
+                }
+            });
+          });
+
+          function updateSlider(slideAmount) 
+          {
+                var img = document.querySelector('.img');
+                img.style.backgroundSize= slideAmount + "%";
+          }
+        </script>
+
+        </head>
+        <body class="img">
+            <div class="box">
+                <div class="inner">
+                    <p><b>Texture Seam Checker</b></p>
+                    <input class="chooseButton" type='file'/>
+                    <h3>Scale:</h3>
+                    <input id="slide" type="range" min="1" max="70" step="1" value="35" onchange="updateSlider(this.value)">
+                    <p style="text-align: center;">Powered by</p>
+                    <p style="text-align: center;"><a href="http://github.com/omerbhatti"> @Omer Bhatti</a></p>
+                </div>
+            </div>
+        </body>
+</html>
