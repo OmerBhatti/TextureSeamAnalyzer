@@ -5,21 +5,27 @@
         <meta charset="utf-8">
         <title>Texture Checking</title>
         <style>
+            *{
+                margin:0px;
+                padding:1px;
+            }
             body{
-                margin:0;
                 font-family: 'Montserrat', sans-serif;
             }
             .img{
                 background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/df12a27e-b183-41af-a9ab-d5a440d1e3ed/de3hdo7-83e9c44b-edf4-490d-bed6-1c8cbd68d4e8.jpg/v1/fill/w_1280,h_2277,q_75,strp/seamless_abstract_pattern_by_bhxt_007_de3hdo7-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD0yMjc3IiwicGF0aCI6IlwvZlwvZGYxMmEyN2UtYjE4My00MWFmLWE5YWItZDVhNDQwZDFlM2VkXC9kZTNoZG83LTgzZTljNDRiLWVkZjQtNDkwZC1iZWQ2LTFjOGNiZDY4ZDRlOC5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.u66enH-dZdr5Hyf-SGJ4bDcQO6m7Z0SZ2RVaakx0GyM");
                 background-repeat: repeat;
+                position: absolute;
+                top:-50vw;
+                left:-50vw;
             }
             .box{
-                width:180px;
-                height:230px;
-                background-color: rgba(0, 0, 0, 0.801);
                 position: absolute;
                 top:50%;
                 left:50%;
+                width:180px;
+                height:230px;
+                background-color: rgba(0, 0, 0, 0.801);
                 transform: translate(-50%,-50%);
                 padding: 30px;
                 border-radius: 15px;
@@ -52,21 +58,30 @@
             });
           });
 
-          function updateSlider(slideAmount) 
+          function updateSize(slideAmount) 
           {
                 var img = document.querySelector('.img');
                 img.style.backgroundSize= slideAmount + "%";
           }
+          function updateRotation(slideAmount) 
+          {
+                var img = document.querySelector('.img');
+                img.style.webkitTransform="rotate(" + slideAmount + "deg)";                
+          }
         </script>
 
         </head>
-        <body class="img">
+        <body>
+            <div class="img" style="width: 200vw; height:200vw;">
+            </div>
             <div class="box">
                 <div class="inner">
-                    <p><b>Texture Seam Checker</b></p>
+                    <p style="text-align: center; padding-bottom: 3px;"><b>Texture Seam Checker</b></p>
                     <input class="chooseButton" type='file'/>
                     <h3>Scale:</h3>
-                    <input id="slide" type="range" min="1" max="70" step="1" value="35" oninput="updateSlider(this.value)">
+                    <input id="slide" type="range" min="1" max="70" step="1" value="35" oninput="updateSize(this.value)">
+                    <h3>Rotate:</h3>
+                    <input id="slide" type="range" min="0" max="360" step="10" value="90" oninput="updateRotation(this.value)">
                     <p style="text-align: center;">Developed by</p>
                     <p style="text-align: center;"><a href="http://github.com/omerbhatti" target="_blank">@Omer Bhatti</a></p>
                 </div>
