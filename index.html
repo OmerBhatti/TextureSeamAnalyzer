@@ -2,7 +2,6 @@
 <html lang="en">
     <head>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-        <link rel="shortcut icon" href="TSA.png" type="image/x-icon">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="utf-8">
         <title>Texture Seam Analyzer</title>
@@ -27,7 +26,6 @@
             .img2{
                 background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/df12a27e-b183-41af-a9ab-d5a440d1e3ed/de3hdo7-83e9c44b-edf4-490d-bed6-1c8cbd68d4e8.jpg/v1/fill/w_1280,h_2277,q_75,strp/seamless_abstract_pattern_by_bhxt_007_de3hdo7-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD0yMjc3IiwicGF0aCI6IlwvZlwvZGYxMmEyN2UtYjE4My00MWFmLWE5YWItZDVhNDQwZDFlM2VkXC9kZTNoZG83LTgzZTljNDRiLWVkZjQtNDkwZC1iZWQ2LTFjOGNiZDY4ZDRlOC5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.u66enH-dZdr5Hyf-SGJ4bDcQO6m7Z0SZ2RVaakx0GyM");
                 background-repeat: repeat;
-                border-radius: 50%;
             }
             .box{
                 position: absolute;
@@ -82,9 +80,9 @@
         </head>
         <body>
             <div class="hide">
-            <div id="Download" class="img1" style="width: 200vw; height:200vw;">
+            <div id="Download" class="img1" style="width: 200vw; height:200vw">
             </div>
-            <div id="my-node" class="img2" style="width: 4096px; height:4096px;">
+            <div id="my-node" class="img2" style="width: 2048px; height:2048px;">
             </div>
             <div class="box">
                 <div class="inner">
@@ -94,7 +92,7 @@
                     <input type="text" name="url" id="url" placeholder="Image URL">
                     <button onclick="setURL()">Done</button>
                     <h3>Scale:</h3>
-                    <input id="slide" type="range" min="1" max="70" step="1" value="35" oninput="updateSize(this.value)">
+                    <input id="slide" type="range" min="5" max="50" step="1" value="35" oninput="updateSize(this.value)">
                     <h3>Rotate:</h3>
                     <input id="slide" type="range" min="0" max="360" step="10" value="90" oninput="updateRotation(this.value)">
                     <center><button id="save">Download</button></center>
@@ -113,11 +111,11 @@
                     {
                         var img1 = document.querySelector('.img1');
                         img1.src = URL.createObjectURL(this.files[0]);
-                        img1.style.backgroundImage = "url("+img.src+")";
+                        img1.style.backgroundImage = "url("+img1.src+")";
                         img1.onload = imageIsLoaded;
                         var img2 = document.querySelector('.img2');
                         img2.src = URL.createObjectURL(this.files[0]);
-                        img2.style.backgroundImage = "url("+img.src+")";
+                        img2.style.backgroundImage = "url("+img2.src+")";
                         img2.onload = imageIsLoaded;
                     }
                 });
@@ -134,8 +132,6 @@
                 {
                     var img1 = document.querySelector('.img1');
                     img1.style.webkitTransform="rotate(" + slideAmount + "deg)";  
-                    var img2 = document.querySelector('.img2');
-                    img2.style.webkitTransform="rotate(" + slideAmount + "deg)";              
                 }
                 function setURL() 
                 {
