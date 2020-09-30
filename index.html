@@ -105,21 +105,21 @@
 
         <script>
             window.addEventListener('load', function() {
-                document.getElementsByClassName('box').focus();
-                document.querySelector('input[type="file"]').addEventListener('change', function() {
-                    if (this.files && this.files[0]) 
-                    {
-                        var img1 = document.querySelector('.img1');
-                        img1.src = URL.createObjectURL(this.files[0]);
-                        img1.style.backgroundImage = "url("+img1.src+")";
-                        img1.onload = imageIsLoaded;
-                        var img2 = document.querySelector('.img2');
-                        img2.src = URL.createObjectURL(this.files[0]);
-                        img2.style.backgroundImage = "url("+img2.src+")";
-                        img2.onload = imageIsLoaded;
-                    }
-                });
-              });
+            document.querySelector('input[type="file"]').addEventListener('change', function() {
+                if (this.files && this.files[0]) 
+                {
+                    var img1 = document.querySelector('.img1');
+                    img1.src = URL.createObjectURL(this.files[0]);
+                    img1.style.backgroundImage = "url("+img1.src+")";
+                    var img2 = document.querySelector('.img2');
+                    img2.src = URL.createObjectURL(this.files[0]);
+                    img2.style.backgroundImage = "url("+img2.src+")";
+
+                    img1.onload = img2.onload = imageIsLoaded;
+                }
+            });
+          });
+              
     
                 function updateSize(slideAmount) 
                 {
