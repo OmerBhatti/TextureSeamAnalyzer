@@ -3,6 +3,7 @@
     <head>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
         <link rel="shortcut icon" href="TSA.png" type="image/x-icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="utf-8">
         <title>Texture Seam Analyzer</title>
         <style>
@@ -65,10 +66,22 @@
                 padding:5px;
                 margin-bottom: 3px;;
             }
+            @media all and (max-width: 768px)
+            {
+                .hide{
+                    display: none;
+                }
+                body{
+                    background-image: url("https://static.internetblog.org.uk/files/accessdenied.jpg");
+                    background-repeat: repeat-y;
+                    background-size: 100%;
+                }
+            };
         </style>
 
         </head>
         <body>
+            <div class="hide">
             <div id="Download" class="img1" style="width: 200vw; height:200vw;">
             </div>
             <div id="my-node" class="img2" style="width: 200vw; height:200vw;">
@@ -89,6 +102,7 @@
                     <p style="text-align: center;"><a href="http://github.com/omerbhatti" target="_blank">@Omer Bhatti</a></p>
                 </div>
             </div>
+        </div>
         </body>
 
         <script>
